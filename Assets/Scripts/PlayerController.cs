@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour {
 
     private float nextFire = 0.0F;
     private Rigidbody rb;
+    private AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
+            audioSource.Play();
         }
     }
 
