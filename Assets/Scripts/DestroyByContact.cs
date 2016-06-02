@@ -28,6 +28,7 @@ public class DestroyByContact : MonoBehaviour {
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gc.GameOver();
         }
         gc.AddScore(scoreValue);
         Destroy(other.gameObject);
